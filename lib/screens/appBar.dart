@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
 import 'package:project_verkholomova/screens/main_screen.dart';
 
-
 Icon _counter=Icon(Hearts[0]['icon'],color: Colors.deepOrange);
 Icon _counter1=Icon(Hearts[1]['icon'],color: Colors.deepOrange);
 Icon _counter2=Icon(Hearts[2]['icon'],color: Colors.deepOrange);
@@ -20,23 +19,12 @@ List<Map<String, IconData>> Hearts=[
 ];
 
 
+class MyAppBar extends AppBar{
+  MyAppBar({ Key? key,  Widget? title})
+  :super(key: key,title: title,actions: <Widget>[
 
-class InitScreen extends StatefulWidget {
-  const InitScreen({Key? key}) : super(key: key);
-
-  @override
-  State<InitScreen> createState() => _InitScreenState();
-}
-
-
-class _InitScreenState extends State<InitScreen> {
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-
-        child: Scaffold(
+    Expanded(
+      child: Scaffold(
         appBar: AppBar(
           leading: Builder(
             builder: (BuildContext context) {
@@ -51,7 +39,7 @@ class _InitScreenState extends State<InitScreen> {
             },
           ),
 
-          title:  Text('Level $point'),
+          title:  Text('Level $number'),
           actions: [
             Row(
               children: [
@@ -59,18 +47,18 @@ class _InitScreenState extends State<InitScreen> {
                 Visibility(child: _counter1, visible: isvisible1),
                 Visibility(child: _counter2, visible: isvisible2),
                 /*Icon(Hearts[count]['icon'],color: Colors.deepOrange),
-                Icon(Hearts[count]['icon'],color: Colors.deepOrange),*/
+                  Icon(Hearts[count]['icon'],color: Colors.deepOrange),*/
               ],
             ),
-             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
 
-              child: InkWell(
-                child: Padding(padding: EdgeInsets.only(top: 20),
-                  child: Text("$point"),
-                ),
+                child: InkWell(
+                  child: Padding(padding: EdgeInsets.only(top: 20,right: 10),
+                    child: Text("$point"),
+                  ),
 
-              )
+                )
 
             ),
           ],
@@ -79,8 +67,10 @@ class _InitScreenState extends State<InitScreen> {
         ),
 
 
-
+      ),
     ),
-      );
-  }
+
+
+
+  ]);
 }

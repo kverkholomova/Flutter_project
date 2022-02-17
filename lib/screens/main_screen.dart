@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_verkholomova/screens/init_screen.dart';
+
 import 'game_screen.dart';
 
 
@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             ElevatedButton( onPressed: () { Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const InitScreen()),
+              MaterialPageRoute(builder: (context) => const GameScreen()),
             );
             print('works');
             },
