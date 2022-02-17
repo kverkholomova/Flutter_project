@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
+import 'package:project_verkholomova/screens/main_screen.dart';
 
 
 Icon _counter=Icon(Hearts[0]['icon'],color: Colors.deepOrange);
@@ -32,40 +33,60 @@ class _InitScreenState extends State<InitScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.arrow_back),
-        title: const Text('1 Task'),
-        actions: [
-          Row(
-            children: [
-              Visibility(child: _counter, visible: isvisible),
-              Visibility(child: _counter1, visible: isvisible1),
-              Visibility(child: _counter2, visible: isvisible2),
-              /*Icon(Hearts[count]['icon'],color: Colors.deepOrange),
-              Icon(Hearts[count]['icon'],color: Colors.deepOrange),*/
-            ],
+    return DefaultTabController(
+      length: 2,
+
+        child: Scaffold(
+        appBar: AppBar(
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () { Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainScreen()),
+                ); },
+
+              );
+            },
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: InkWell(
-              child: Padding(padding: EdgeInsets.all(8),
-                child: Icon(Icons.auto_awesome ),
-              ),
 
-            )
+          title:  Text('Level $point'),
+          actions: [
+            Row(
+              children: [
+                Visibility(child: _counter, visible: isvisible),
+                Visibility(child: _counter1, visible: isvisible1),
+                Visibility(child: _counter2, visible: isvisible2),
+                /*Icon(Hearts[count]['icon'],color: Colors.deepOrange),
+                Icon(Hearts[count]['icon'],color: Colors.deepOrange),*/
+              ],
+            ),
+             Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
 
-          ),
-        ],
-        backgroundColor: Colors.deepPurpleAccent,
-        toolbarHeight: 60,
-      ),
+              child: InkWell(
+                child: Padding(padding: EdgeInsets.only(top: 20),
+                  child: Text("$point"),
+                ),
 
-      body: Container(
-        child:  GameScreen(),
-      ),
+              )
+
+            ),
+          ],
+          backgroundColor: Colors.deepPurpleAccent,
+          toolbarHeight: 60,
+        ),
+
+        body: const TabBarView(
+          children: [
+            GameScreen(),
+            GameScreen01(),
+          ],
+        ),
 
 
-    );
+    ),
+      );
   }
 }
