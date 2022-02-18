@@ -34,13 +34,24 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
             ),
-            ElevatedButton( onPressed: () { Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const GameScreen()),
-            );
-            print('works');
-            },
-            child: Text("Play"))
+            Padding(
+              padding: EdgeInsets.only(top: 340),
+              child: SizedBox(
+                width: 380,
+                height: 60,
+
+                child: ElevatedButton( onPressed: () { Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const GameScreen()),
+                );
+                print('works');
+                },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.deepPurpleAccent,
+                    ),
+                child: Text("Play")),
+              ),
+            )
           ],
         ),
       ),

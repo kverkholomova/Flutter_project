@@ -21,15 +21,15 @@ List<Map<String, IconData>> Hearts=[
 
 
 
-class InitScreen extends StatefulWidget {
-  const InitScreen({Key? key}) : super(key: key);
+class InitScreen1 extends StatefulWidget {
+  const InitScreen1({Key? key}) : super(key: key);
 
   @override
-  State<InitScreen> createState() => _InitScreenState();
+  State<InitScreen1> createState() => _InitScreen1State();
 }
 
 
-class _InitScreenState extends State<InitScreen> {
+class _InitScreen1State extends State<InitScreen1> {
 
   @override
   Widget build(BuildContext context) {

@@ -8,11 +8,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Count Your Water',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+
+      title: 'App',
+
       home: const MainScreen(),
     );
   }

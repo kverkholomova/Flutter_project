@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:project_verkholomova/screens/appBar.dart';
 import 'package:project_verkholomova/screens/main_screen.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
-import 'package:project_verkholomova/screens/game_screen03.dart';
+import 'package:project_verkholomova/screens/game_screen04.dart';
 
-class GameScreen02 extends StatefulWidget {
-  const GameScreen02({Key? key}) : super(key: key);
+class GameScreen03 extends StatefulWidget {
+  const GameScreen03({Key? key}) : super(key: key);
 
   @override
-  State<GameScreen02> createState() => _GameScreen02State();
+  State<GameScreen03> createState() => _GameScreen03State();
 }
-class _GameScreen02State extends State<GameScreen02> {
+class _GameScreen03State extends State<GameScreen03> {
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _GameScreen02State extends State<GameScreen02> {
                           Text("Choose a color which is used for the word", style: TextStyle(color: Colors.black, fontSize: 20, fontFamily: 'Relay')),
                           Padding(
                             padding: const EdgeInsets.only(top: 18),
-                            child: Text("Blue", style: TextStyle(color: Colors.yellow, fontSize: 40, fontFamily: 'Relay'),),
+                            child: Text("Purple", style: TextStyle(color: Colors.orange, fontSize: 40, fontFamily: 'Relay'),),
                           ),
                           Row(
                             children: [
@@ -49,7 +49,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                   );
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>  const GameScreen02()),
+                                    MaterialPageRoute(builder: (context) =>  const GameScreen03()),
                                   );
                                   print("hidden");
 
@@ -71,7 +71,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                             onPressed: () {
                                               Navigator.push(
                                                 context,
-                                                MaterialPageRoute(builder: (context) => const GameScreen02()),
+                                                MaterialPageRoute(builder: (context) => const GameScreen03()),
                                               );
                                               count=3;
                                               isvisible=true;
@@ -83,7 +83,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                       ),
                                     );
                                   }
-                                }, child: Text("Red",style: TextStyle(color: Colors.yellow, fontSize: 30, fontFamily: 'Relay'))),
+                                }, child: Text("Blue",style: TextStyle(color: Colors.purple, fontSize: 30, fontFamily: 'Relay'))),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 300,left: 20),
@@ -111,7 +111,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                             isvisible1=true;
                                             Navigator.push(
                                               context,
-                                              MaterialPageRoute(builder: (context) => const GameScreen03()),
+                                              MaterialPageRoute(builder: (context) => const GameScreen04()),
                                             );
 
                                           },
@@ -121,7 +121,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                       ],
                                     ),
                                   );
-                                }, child: Text("Yellow",style: TextStyle(color: Colors.green, fontSize: 30, fontFamily: 'Relay'))),
+                                }, child: Text("Orange",style: TextStyle(color: Colors.green, fontSize: 30, fontFamily: 'Relay'))),
                               ),
 
                               Padding(
@@ -135,7 +135,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                   );
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>  const GameScreen02()),
+                                    MaterialPageRoute(builder: (context) =>  const GameScreen03()),
                                   );
                                   print("hidden");
 
@@ -157,7 +157,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                             onPressed: () {
                                               Navigator.push(
                                                 context,
-                                                MaterialPageRoute(builder: (context) => const GameScreen02()),
+                                                MaterialPageRoute(builder: (context) => const GameScreen03()),
                                               );
                                               count=3;
                                               isvisible=true;
@@ -169,7 +169,7 @@ class _GameScreen02State extends State<GameScreen02> {
                                       ),
                                     );
                                   }
-                                }, child: Text("Blue",style: TextStyle(color: Colors.purple, fontSize: 30, fontFamily: 'Relay'))),
+                                }, child: Text("Purple",style: TextStyle(color: Colors.black, fontSize: 30, fontFamily: 'Relay'))),
                               ),
                             ],
                           ),
