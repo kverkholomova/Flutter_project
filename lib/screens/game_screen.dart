@@ -4,6 +4,9 @@ import 'package:project_verkholomova/screens/main_screen.dart';
 import 'package:project_verkholomova/screens/game_screen01.dart';
 import 'dart:async';
 
+import 'package:project_verkholomova/range.dart';
+
+
 
 int point=0;
 int number=1;
@@ -47,7 +50,7 @@ class _GameScreenState extends State<GameScreen> {
 
   void showAlert(){
 
-    final DateTime now=DateTime.now();
+
     setState(() {
       showDialog<String>(
         context: context,
@@ -85,7 +88,7 @@ class _GameScreenState extends State<GameScreen> {
 
     if(running_number==1){
       run();
-    Timer.periodic(Duration(seconds: 15),(Timer timer){
+    Timer.periodic(Duration(seconds: 20),(Timer timer){
 
       if(running_number!=2){
         timer.cancel();
@@ -96,13 +99,17 @@ class _GameScreenState extends State<GameScreen> {
         timer.cancel();
       }
 
+
     });
+
+
     super.initState();
   }}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: MyAppBar(),
       body: SafeArea(
         child: Container(
@@ -113,16 +120,26 @@ class _GameScreenState extends State<GameScreen> {
           Center(
             child: Column(
               children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 30.0),
+                  child: SizedBox(
+                      width: 400,
+                      height: 10,
+
+                      child: const MyStatefulWidget()),
+                ),
+
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 200),
+                  padding: const EdgeInsets.only(top: 100),
                   child: Column(
                       children:[
+
                         Text("What color is it?", style: TextStyle(color: Colors.green, fontSize: 40, fontFamily: 'Relay'),),
                         Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 300,left: 65),
+                              padding: const EdgeInsets.only(top: 100,left: 65),
                               child: MaterialButton(onPressed: () {
                                 point+=10;
                                 number++;
@@ -145,6 +162,7 @@ class _GameScreenState extends State<GameScreen> {
                                       count=3;
                                       isvisible=true;
                                       isvisible1=true;
+
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(builder: (context) => const GameScreen01()),
@@ -160,7 +178,7 @@ class _GameScreenState extends State<GameScreen> {
                               }, child: Text("Green",style: TextStyle(color: Colors.red, fontSize: 30, fontFamily: 'Relay'))),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 300,left:65, right: 65),
+                              padding: const EdgeInsets.only(top: 100,left:65, right: 65),
                               child: MaterialButton(onPressed: () {
                                 count--;
                                 changeVisibility(count);
@@ -216,7 +234,9 @@ class _GameScreenState extends State<GameScreen> {
           )
         ),
       ),
+
     );
+
   }}
 
 
