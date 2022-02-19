@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'game_screen.dart';
 
+int running_number=1;
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

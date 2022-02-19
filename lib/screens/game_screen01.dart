@@ -3,6 +3,7 @@ import 'package:project_verkholomova/screens/appBar.dart';
 import 'package:project_verkholomova/screens/main_screen.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
 import 'package:project_verkholomova/screens/game_screen02.dart';
+import 'dart:async';
 
 class GameScreen01 extends StatefulWidget {
   const GameScreen01({Key? key}) : super(key: key);
@@ -11,6 +12,69 @@ class GameScreen01 extends StatefulWidget {
   State<GameScreen01> createState() => _GameScreen01State();
 }
 class _GameScreen01State extends State<GameScreen01> {
+
+  void run(){
+    print("Game2");
+    print("$running_number");
+    if(running_number==2){
+      running_number++;
+    }
+  }
+
+  void showAlert(){
+    final DateTime now=DateTime.now();
+    setState(() {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('Time is over!'),
+          content:  Text('Level $number is not passed'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MainScreen()),
+              ),
+              child: const Text('Get back to menu'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const GameScreen01()),
+                );
+                count=3;
+                isvisible=true;
+                isvisible1=true;
+              },
+              child: const Text('Try again'),
+            ),
+          ],
+        ),
+      );
+    });
+  }
+
+  @override
+  void initState(){
+
+    if(running_number==2){
+      run();
+      Timer.periodic(Duration(seconds: 15),(Timer timer){
+
+        if(running_number!=3){
+          timer.cancel();
+        }
+        if(running_number==3){
+          showAlert();
+
+          timer.cancel();
+        }
+
+      });
+      run();
+      super.initState();
+    }}
 
   @override
   Widget build(BuildContext context) {
