@@ -1,86 +1,83 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
 import 'package:project_verkholomova/screens/main_screen.dart';
 
-
-Icon _counter=Icon(Hearts[0]['icon'],color: Colors.deepOrange);
-Icon _counter1=Icon(Hearts[1]['icon'],color: Colors.deepOrange);
-Icon _counter2=Icon(Hearts[2]['icon'],color: Colors.deepOrange);
-
-List<Map<String, IconData>> Hearts=[
-  {
-    'icon':Icons.favorite,
-  },
-  {
-    'icon':Icons.favorite,
-  },
-  {
-    'icon':Icons.favorite,
-  }
-];
-
-
-
-class InitScreen1 extends StatefulWidget {
-  const InitScreen1({Key? key}) : super(key: key);
+class Notification extends StatefulWidget {
+  const Notification({Key? key}) : super(key: key);
 
   @override
-  State<InitScreen1> createState() => _InitScreen1State();
+  State<Notification> createState() => _NotificationState();
 }
+class _NotificationState extends State<Notification> {
 
+  void run(){
+    print("Game1");
+    print("$running_number");
 
-class _InitScreen1State extends State<InitScreen1> {
+    running_number++;
+  }
+
+  void showAlert(){
+    setState(() {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('Time is over!'),
+          content:  Text('Level $number is not passed'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MainScreen()),
+              ),
+              child: const Text('Get back to menu'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const GameScreen()),
+                );
+                count=3;
+                isvisible=true;
+                isvisible1=true;
+              },
+              child: const Text('Try again'),
+            ),
+          ],
+        ),
+      );
+    });
+  }
+
+  @override
+  void initState(){
+
+    if(running_number==1){
+      run();
+      Timer.periodic(Duration(seconds: 20),(Timer timer){
+
+        if(running_number!=2){
+          timer.cancel();
+        }
+        if(running_number==2){
+          showAlert();
+
+          timer.cancel();
+        }
+      });
+      super.initState();
+    }}
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-
-        child: Scaffold(
-        appBar: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () { Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MainScreen()),
-                ); },
-
-              );
-            },
-          ),
-
-          title:  Text('Level $point'),
-          actions: [
-            Row(
-              children: [
-                Visibility(child: _counter, visible: isvisible),
-                Visibility(child: _counter1, visible: isvisible1),
-                Visibility(child: _counter2, visible: isvisible2),
-                /*Icon(Hearts[count]['icon'],color: Colors.deepOrange),
-                Icon(Hearts[count]['icon'],color: Colors.deepOrange),*/
-              ],
-            ),
-             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-
-              child: InkWell(
-                child: Padding(padding: EdgeInsets.only(top: 20),
-                  child: Text("$point"),
-                ),
-
-              )
-
-            ),
-          ],
-          backgroundColor: Colors.deepPurpleAccent,
-          toolbarHeight: 60,
-        ),
-
-
-
-    ),
-      );
+    // TODO: implement build
+    throw UnsupportedError;
   }
+
 }
+
+
+
