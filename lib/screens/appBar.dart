@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
 import 'package:project_verkholomova/screens/main_screen.dart';
 
-Icon _counter=Icon(Hearts[0]['icon'],color: Colors.deepOrange);
-Icon _counter1=Icon(Hearts[1]['icon'],color: Colors.deepOrange);
-Icon _counter2=Icon(Hearts[2]['icon'],color: Colors.deepOrange);
+Icon _counter=Icon(Hearts[0]['icon'],color: Colors.blue[900]);
+Icon _counter1=Icon(Hearts[1]['icon'],color: Colors.blue[900]);
+Icon _counter2=Icon(Hearts[2]['icon'],color: Colors.blue[900]);
 
 List<Map<String, IconData>> Hearts=[
   {
@@ -62,7 +62,7 @@ class MyAppBar extends AppBar{
 
             ),
           ],
-          backgroundColor: Colors.deepPurpleAccent,
+          backgroundColor: Colors.blue[400],
           toolbarHeight: 60,
         ),
 

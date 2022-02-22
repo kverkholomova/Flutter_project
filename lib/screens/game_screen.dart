@@ -5,6 +5,9 @@ import 'package:project_verkholomova/screens/game_screen01.dart';
 
 import 'package:project_verkholomova/range.dart';
 
+String className1='1';
+int show2=0;
+int show1=1;
 int point=0;
 int number=1;
 
@@ -32,7 +35,10 @@ class GameScreen extends StatefulWidget {
   @override
   State<GameScreen> createState() => _GameScreenState();
 }
+
+
 class _GameScreenState extends State<GameScreen> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class _GameScreenState extends State<GameScreen> {
       appBar: MyAppBar(),
       body: SafeArea(
         child: Container(
-          color: Colors.white,
+          color: Colors.blue[50],
           width: double.infinity,
           height: double.infinity,
           child:
@@ -65,38 +71,63 @@ class _GameScreenState extends State<GameScreen> {
                         Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 100,left: 65),
+                              padding: const EdgeInsets.only(top: 380,left: 65),
                               child: MaterialButton(onPressed: () {
                                 point+=10;
                                 number++;
+                                className1='Done';
+                                show1=0;
                                 showDialog<String>(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('You are right!'),
-                                  content:  Text('Level ${number-1} passed'),
+                                  title: Text('You are right!',textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 30, fontFamily: 'Relay')),
+                                  content:
+                                  Container(
+                                      width: 260.0,
+                                      height: 230.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        color: const Color(0xFFFFFF),
+                                        borderRadius: new BorderRadius.all(Radius.circular(32.0)),
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          SizedBox(
+                                              width:150,
+                                              height: 150,
+                                              child: Image(image: NetworkImage("https://media.istockphoto.com/vectors/celebrate-party-poppers-with-confetti-for-festive-congratulations-and-vector-id1171304057?k=20&m=1171304057&s=170667a&w=0&h=4NKZCqi2gtZ31TS9aJNA3SAqkAJU4-x6eBesk0Lt3EE="))),
+                                          Text('Level ${number-1} passed',textAlign: TextAlign.center,style: TextStyle(color: Colors.black, fontSize: 20, fontFamily: 'Relay')),
+                                        ],
+                                      )),
+
                                   actions: <Widget>[
-                                    TextButton(
-                                    onPressed: () => Navigator.push(
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 35.0),
+                                      child: TextButton(
+                                      onPressed: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => const MainScreen()),
                                 ),
-                                      child: const Text('Get back to menu'),
+                                        child: const Text('Get back to menu',style: TextStyle(color: Colors.black, fontSize: 15, fontFamily: 'Relay')),
+                                      ),
                                     ),
-                                    TextButton(
-                                      onPressed: () {
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20.0),
+                                      child: TextButton(
+                                        onPressed: () {
 
-                                      count=3;
-                                      isvisible=true;
-                                      isvisible1=true;
+                                        count=3;
+                                        isvisible=true;
+                                        isvisible1=true;
+                                        show2=2;
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => const GameScreen01()),
+                                        );
+                                        },
 
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => const GameScreen01()),
-                                      );
-
-                                      },
-
-                                      child: const Text('Next level'),
+                                        child: const Text('Next level',style: TextStyle(color: Colors.black, fontSize: 15, fontFamily: 'Relay')),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -104,7 +135,7 @@ class _GameScreenState extends State<GameScreen> {
                               }, child: Text("Green",style: TextStyle(color: Colors.red, fontSize: 30, fontFamily: 'Relay'))),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 100,left:65, right: 65),
+                              padding: const EdgeInsets.only(top: 380,left:65, right: 65),
                               child: MaterialButton(onPressed: () {
                                 count--;
                                 changeVisibility(count);
@@ -122,29 +153,55 @@ class _GameScreenState extends State<GameScreen> {
                                   showDialog<String>(
                                     context: context,
                                     builder: (BuildContext context) => AlertDialog(
-                                      title: const Text('You should try once more!'),
-                                      content: const Text('Level 1 is not passed'),
-                                      actions: <Widget>[
-                                        TextButton(
-                                          onPressed: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (context) => const MainScreen()),
+                                      title: Text('You should try once more!',textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 30, fontFamily: 'Relay')),
+                                      content:
+                                      Container(
+                                          width: 260.0,
+                                          height: 230.0,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                            color: const Color(0xFFFFFF),
+                                            borderRadius: new BorderRadius.all(Radius.circular(32.0)),
                                           ),
-                                          child: const Text('Get back to menu'),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            Navigator.push(
+                                          child: Column(
+                                            children: [
+                                              SizedBox(
+                                                  width:150,
+                                                  height: 150,
+                                                  child: Image(image: NetworkImage("https://i.pinimg.com/originals/63/4c/e0/634ce0008c346cdf855147d90f4e7c4a.jpg"))),
+                                              Text('Level 1 is not passed',textAlign: TextAlign.center,style: TextStyle(color: Colors.black, fontSize: 20, fontFamily: 'Relay')),
+                                            ],
+                                          )),
+
+                                      actions: <Widget>[
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 45.0),
+                                          child: TextButton(
+                                            onPressed: () => Navigator.push(
                                               context,
-                                              MaterialPageRoute(builder: (context) => const GameScreen()),
-                                            );
-                                          count=3;
-                                          isvisible=true;
-                                          isvisible1=true;
+                                              MaterialPageRoute(builder: (context) => const MainScreen()),
+                                            ),
+                                            child: const Text('Get back to menu',style: TextStyle(color: Colors.black, fontSize: 15, fontFamily: 'Relay')),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 30.0),
+                                          child: TextButton(
+                                            onPressed: () {
 
+                                              count=3;
+                                              isvisible=true;
+                                              isvisible1=true;
 
-                                          },
-                                          child: const Text('Try again'),
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(builder: (context) => const GameScreen()),
+                                              );
+
+                                            },
+
+                                            child: const Text('Try again',style: TextStyle(color: Colors.black, fontSize: 15, fontFamily: 'Relay')),
+                                          ),
                                         ),
                                       ],
                                     ),
