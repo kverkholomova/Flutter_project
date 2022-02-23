@@ -5,9 +5,9 @@ import 'package:project_verkholomova/screens/game_screen01.dart';
 
 import 'package:project_verkholomova/range.dart';
 
+int currentLevel=1;
 String className1='1';
-int show2=0;
-int show1=1;
+int show=1;
 int point=0;
 int number=1;
 
@@ -72,11 +72,13 @@ class _GameScreenState extends State<GameScreen> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(top: 380,left: 65),
-                              child: MaterialButton(onPressed: () {
+                              child: MaterialButton(
+                                  onPressed: () {
                                 point+=10;
                                 number++;
                                 className1='Done';
-                                show1=0;
+                                show=0;
+                                currentLevel=2;
                                 showDialog<String>(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
@@ -84,7 +86,7 @@ class _GameScreenState extends State<GameScreen> {
                                   content:
                                   Container(
                                       width: 260.0,
-                                      height: 230.0,
+                                      height: 200.0,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.rectangle,
                                         color: const Color(0xFFFFFF),
@@ -119,7 +121,7 @@ class _GameScreenState extends State<GameScreen> {
                                         count=3;
                                         isvisible=true;
                                         isvisible1=true;
-                                        show2=2;
+                                        show=2;
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(builder: (context) => const GameScreen01()),
@@ -157,7 +159,7 @@ class _GameScreenState extends State<GameScreen> {
                                       content:
                                       Container(
                                           width: 260.0,
-                                          height: 230.0,
+                                          height: 200.0,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.rectangle,
                                             color: const Color(0xFFFFFF),

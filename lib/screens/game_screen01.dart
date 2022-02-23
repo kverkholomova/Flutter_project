@@ -7,7 +7,7 @@ import 'package:project_verkholomova/range.dart';
 
 
 String className2='2';
-int show3=0;
+
 
 class GameScreen01 extends StatefulWidget {
   const GameScreen01({Key? key}) : super(key: key);
@@ -57,8 +57,8 @@ class _GameScreen01State extends State<GameScreen01> {
                                   point+=10;
                                   number++;
                                   className2='Done';
-                                  show2=0;
-
+                                  show=0;
+                                  currentLevel=3;
                                   showDialog<String>(
                                     context: context,
                                     builder: (BuildContext context) => AlertDialog(
@@ -66,7 +66,7 @@ class _GameScreen01State extends State<GameScreen01> {
                                       content:
                                       Container(
                                           width: 260.0,
-                                          height: 230.0,
+                                          height: 200.0,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.rectangle,
                                             color: const Color(0xFFFFFF),
@@ -101,7 +101,7 @@ class _GameScreen01State extends State<GameScreen01> {
                                               count=3;
                                               isvisible=true;
                                               isvisible1=true;
-                                              show3=3;
+                                              show=3;
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(builder: (context) => const GameScreen02()),
@@ -141,7 +141,7 @@ class _GameScreen01State extends State<GameScreen01> {
                                         content:
                                         Container(
                                             width: 260.0,
-                                            height: 230.0,
+                                            height: 200.0,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.rectangle,
                                               color: const Color(0xFFFFFF),
@@ -216,7 +216,7 @@ class _GameScreen01State extends State<GameScreen01> {
                                         content:
                                         Container(
                                             width: 260.0,
-                                            height: 230.0,
+                                            height: 200.0,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.rectangle,
                                               color: const Color(0xFFFFFF),

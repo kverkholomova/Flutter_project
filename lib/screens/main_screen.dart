@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:project_verkholomova/screens/first_screen.dart';
 
 import 'game_screen.dart';
+import 'game_screen01.dart';
+import 'game_screen02.dart';
+import 'game_screen03.dart';
+import 'game_screen04.dart';
 
 int running_number=1;
+
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -36,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
                   padding: EdgeInsets.only(top: 80.0),
                   child: Center(
                     child: Container(
-                      width: 1000,
+                      width: 1400,
                       height: 350,
                       decoration:  BoxDecoration(
                         shape: BoxShape.circle,
@@ -58,10 +63,41 @@ class _MainScreenState extends State<MainScreen> {
                   child: SizedBox(
                     width: 200,
                     height: 70,
-                    child: ElevatedButton( onPressed: () { Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const GameScreen()),
-                    );
+                    child: ElevatedButton( onPressed: () {
+
+                      if(currentLevel==1){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const GameScreen()),
+                        );
+                      }
+                      else if(currentLevel==2){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const GameScreen01()),
+                        );
+                      }
+                      else if(currentLevel==3){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const GameScreen02()),
+                        );
+                      }
+                      else if(currentLevel==4){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const GameScreen03()),
+                        );
+                      }
+                      else if(currentLevel==5){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const GameScreen04()),
+                        );
+                      }
+
+
+
                     print('works');
                     },
                         style: ElevatedButton.styleFrom(
@@ -82,4 +118,5 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
+
 }

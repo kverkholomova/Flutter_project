@@ -14,7 +14,7 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
 // 2. add SingleTickerProviderStateMixin
     with SingleTickerProviderStateMixin {
   // 3. create the AnimationController
-  late final _animationController = AnimationController(
+ /* late final _animationController = AnimationController(
     vsync: this,
     duration: Duration(seconds:3),
   );
@@ -30,8 +30,9 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
     // 4. dispose the AnimationController when no longer needed
     _animationController.dispose();
     super.dispose();
-  }
+  }*/
 
+  Color _color=Colors.blueAccent;
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +53,9 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
                   padding: const EdgeInsets.only(top: 80.0),
                   child: Center(
                     // 1. use an AnimatedBuilder
-                    child: AnimatedBuilder(
+                    //child: AnimatedBuilder(
                       // 2. pass our AnimationController as the animation argument
-                      animation: _animationController,
+                     // animation: _animationController,
                       // 3. pass the child widget that we will animate
                       child: Container(
                         width: 1000,
@@ -69,15 +70,15 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
                         ),
                       ),
                       // 4. add a builder argument (this will be called when the animation value changes)
-                      builder: (context, child) {
+                      //builder: (context, child) {
                         // 5. use a Transform widget to apply a rotation
-                        return Transform.rotate(
+                      //  return Transform.rotate(
                           // 6. the angle is a function of the AnimationController's value
-                          angle: 2.05 * pi * _animationController.value,
-                          child: child,
-                        );
-                      },
-                    ),
+                        //  angle: 2.05 * pi * _animationController.value,
+                         // child: child,
+                     //   );
+                      //},
+                   // ),
                   ),
                 ),
               ],
@@ -85,17 +86,31 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
 
             Padding(
               padding: EdgeInsets.only(top: 80),
-              child: SizedBox(
+              child: AnimatedContainer(
                 width: 200,
                 height: 70,
-                child: ElevatedButton( onPressed: () { Navigator.push(
+                decoration: BoxDecoration(
+                  color: _color,
+                ),
+                duration: Duration(seconds: 2),
+                curve: Curves.fastOutSlowIn,
+                child: ElevatedButton( onPressed: () {
+                  setState(() {
+                    final random=Random();
+                    _color=Color.fromRGBO(
+                        random.nextInt(256),
+                        random.nextInt(256),
+                        random.nextInt(256),
+                    1);
+                  });
+                  Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const RotationTransitionPage()),
                 );
                 print('works');
                 },
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.blue,
+                        //primary: Colors.blue,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
                             side: BorderSide(color: Colors.white, width: 1)

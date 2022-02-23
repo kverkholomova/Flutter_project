@@ -4,7 +4,6 @@ import 'package:project_verkholomova/screens/main_screen.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
 import 'package:project_verkholomova/range.dart';
 
-import 'game_screen03.dart';
 
 String className5='5';
 
@@ -75,7 +74,7 @@ class _GameScreen04State extends State<GameScreen04> {
                                         content:
                                         Container(
                                             width: 260.0,
-                                            height: 230.0,
+                                            height: 200.0,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.rectangle,
                                               color: const Color(0xFFFFFF),
@@ -133,7 +132,7 @@ class _GameScreen04State extends State<GameScreen04> {
                                   point+=10;
                                   number++;
                                   className5='Done';
-                                  show5=0;
+                                  show=0;
                                   showDialog<String>(
                                     context: context,
                                     builder: (BuildContext context) => AlertDialog(
@@ -141,7 +140,7 @@ class _GameScreen04State extends State<GameScreen04> {
                                       content:
                                       Container(
                                           width: 260.0,
-                                          height: 230.0,
+                                          height: 200.0,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.rectangle,
                                             color: const Color(0xFFFFFF),
@@ -176,7 +175,6 @@ class _GameScreen04State extends State<GameScreen04> {
                                               count=3;
                                               isvisible=true;
                                               isvisible1=true;
-
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(builder: (context) => const GameScreen04()),
@@ -216,7 +214,7 @@ class _GameScreen04State extends State<GameScreen04> {
                                         content:
                                         Container(
                                             width: 260.0,
-                                            height: 230.0,
+                                            height: 200.0,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.rectangle,
                                               color: const Color(0xFFFFFF),
