@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_verkholomova/screens/appBar.dart';
+import 'package:project_verkholomova/screens/first_screen.dart';
 import 'package:project_verkholomova/screens/main_screen.dart';
 import 'package:project_verkholomova/screens/game_screen.dart';
 import 'package:project_verkholomova/range.dart';
@@ -133,6 +134,7 @@ class _GameScreen04State extends State<GameScreen04> {
                                   number++;
                                   className5='Done';
                                   show=0;
+
                                   showDialog<String>(
                                     context: context,
                                     builder: (BuildContext context) => AlertDialog(
@@ -175,9 +177,10 @@ class _GameScreen04State extends State<GameScreen04> {
                                               count=3;
                                               isvisible=true;
                                               isvisible1=true;
+                                              currentLevel=6;
                                               Navigator.push(
                                                 context,
-                                                MaterialPageRoute(builder: (context) => const GameScreen04()),
+                                                MaterialPageRoute(builder: (context) => const RotationTransitionPage()),
                                               );
 
                                             },

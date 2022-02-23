@@ -95,13 +95,19 @@ class _MainScreenState extends State<MainScreen> {
                           MaterialPageRoute(builder: (context) => const GameScreen04()),
                         );
                       }
+                      else if(currentLevel==6){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const RotationTransitionPage()),
+                        );
+                      }
 
 
 
                     print('works');
                     },
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.blue,
+                          primary: Colors.blue[400],
                           shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0),
                                   side: BorderSide(color: Colors.white, width: 1)
